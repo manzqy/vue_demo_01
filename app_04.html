@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+</head>
+<style>
+  .active {
+    color: green;
+  }
+</style>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="(item, index) in product" :class="{active: currentIndex === index }" @click="cg(index)">{{item}}</li>
+    </ul>
+  </div>
+</body>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      product: ['看爱车','acac','cwacw','qdx','qc c','caka'],
+      currentIndex: 0
+    },
+    methods: {
+      cg (index) {
+        this.currentIndex = index
+      }
+    }
+  })
+</script>
+</html>

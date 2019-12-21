@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <style> 
+        .hi {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <label for="cg" v-text="content"></label>
+        <input type="checkbox" id="cg" v-model="isSure">
+        <h2 v-html="message" :title="title" v-bind:class="{'hi':isSure}"></h2>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            content: '修改颜色',
+            message: '<p>你好呀！</p>',
+            title: 'hello',
+            isSure: false
+        }
+    })
+</script>
+</html>

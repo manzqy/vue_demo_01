@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <cpn1 :cmessage="message" @item="kl"> </cpn1>
+    </div>
+
+    <template id="opp">
+      <div>
+        <h2 v-text="cmessage"></h2>
+        <button @click="btnclick('oppo')">click</button>
+      </div>
+    </template>
+  </body>
+  <script>
+    const cpn1 = {
+      template: "#opp",
+      data() {
+        return {};
+      },
+      props: {
+        cmessage: {
+          type: String,
+          default: "kla555c",
+          required: true
+        }
+      },
+      methods: {
+        btnclick(e) {
+          this.$emit("item", e);
+        }
+      }
+    };
+    const app = new Vue({
+      el: "#app",
+      data: {
+        message: "kkkooooo"
+      },
+      components: {
+        cpn1
+      },
+      methods: {
+        kl(i) {
+          console.log(i);
+        }
+      }
+    });
+  </script>
+</html>
